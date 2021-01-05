@@ -16,8 +16,19 @@ using System.Text;
 
 namespace Algos_C_Sharp
 {
-    class ClimbingStairs
+    public class ClimbingStairs
     {
+        public int ClimbStairs(int n)
+        {
+            var dp = new List<int> { 0, 1, 2 };
 
+            for (int i = 3; i <= n; i++)
+            {
+                int numSteps = dp[i - 2] + dp[i - 1];
+                dp.Add(numSteps);
+            }
+
+            return dp[n];
+        }
     }
 }
