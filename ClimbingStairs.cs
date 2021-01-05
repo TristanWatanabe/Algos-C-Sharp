@@ -32,3 +32,9 @@ namespace Algos_C_Sharp
         }
     }
 }
+
+/*
+  * N - input number
+  * Time Complexity: O(N)
+  * Space Complexity: O(N)
+ */
