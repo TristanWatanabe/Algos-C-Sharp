@@ -46,3 +46,9 @@ namespace Algos_C_Sharp
         }
     }
 }
+
+/**
+ * N - input integer
+ * Time Complexity: O(4N/squareroot(N)) - each valid sequencec has at most n steps during the backtrack process
+ * Space Complexity: O(4N/squareroot(N))
+ **/
