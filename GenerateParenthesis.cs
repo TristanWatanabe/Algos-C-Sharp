@@ -20,6 +20,29 @@ namespace Algos_C_Sharp
 {
     class GenerateParenthesis
     {
+        public List<string> generateParenthesis(int n)
+        {
+            var results = new List<string> { };
+            backTrack("", 0, 0, n, results);
+            return results;
+        }
+        public void backTrack(string str, int open, int close, int n, IList<string> results)
+        {
+            if (open == n && close == n)
+            {
+                results.Add(str);
+                return;
+            }
 
+            if (open < n)
+            {
+                backTrack(str + "(", open + 1, close, n, results);
+            }
+
+            if (close < open)
+            {
+                backTrack(str + ")", open, close + 1, n, results);
+            }
+        }
     }
 }
