@@ -19,5 +19,42 @@ namespace Algos_C_Sharp
     */
     class KillProcess
     {
+        public IList<int> killProcess(IList<int> pid, IList<int> ppid, int kill)
+        {
+            var hash = new Dictionary<string, List<int>>() { };
+            var result = new List<int> { };
+            var processessToKill = new Stack<int>(new int[] { kill });
+
+            for (int i = 0; i < ppid.Count; i++)
+            {
+                string parent = ppid[i].ToString();
+                int child = pid[i];
+                if (hash.ContainsKey(parent))
+                {
+                    hash[parent].Add(child);
+                }
+                else
+                {
+                    hash[parent] = new List<int> { child };
+                }
+            }
+
+
+            while (processessToKill.Count > 0)
+            {
+                int toKill = processessToKill.Pop();
+                string key = toKill.ToString();
+                if (hash.ContainsKey(key))
+                {
+                    for (int i = 0; i < hash[key].Count; i++)
+                    {
+                        int child = hash[key][i];
+                        processessToKill.Push(child);
+                    }
+                }
+                result.Add(toKill);
+            }
+            return result;
+        }
     }
 }
