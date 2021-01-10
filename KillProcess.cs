@@ -58,3 +58,9 @@ namespace Algos_C_Sharp
         }
     }
 }
+
+/**
+ * N - number of processes
+ * Time Complexity: O(N)
+ * Space Complexity: O(N)
+ */
